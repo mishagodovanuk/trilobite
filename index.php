@@ -5,5 +5,7 @@ require_once 'core/Autoload.php';
 Core\Autoload::loadSystemTools();
 Core\Autoload::load();
 
+Core\App\Router\Router::run();
 
-die('here');
+
+die('<br> die method here');
