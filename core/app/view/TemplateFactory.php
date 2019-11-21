@@ -3,7 +3,7 @@ namespace Core\App\View;
 
 use Core\App\View\View;
 use Core\App\View\RenderTemplate;
-
+use Core\App\Controller\Redirect;
 
 class TemplateFactory
 {
@@ -28,10 +28,12 @@ class TemplateFactory
             if (file_exists($contentPath)) {
                 $this->render($templatePath, $contentPath);
             } else {
-                die("Content {$contentPath} doesnt exist"); // Redirect 404
+                Redirect::pageNotFound();
+                //die("Content {$contentPath} doesnt exist"); // Redirect 404
             }
         } else {
-            die("Template {$templatePath} doesnt exist");   // Redirect 404
+            Redirect::pageNotFound();
+            //die("Template {$templatePath} doesnt exist");   // Redirect 404
         }
     }
 

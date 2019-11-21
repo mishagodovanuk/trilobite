@@ -2,6 +2,7 @@
 
 namespace Core\App\Router;
 
+use Core\App\Controller\Redirect;
 use Core\App\View\TemplateFactory;
 
 /**
@@ -48,10 +49,12 @@ class Dispatch
             if (class_exists($action)) {
                 $this->runDispatch($action, $this->routing);
             } else {
-                die("Action class {$action} in {$this->routing['action']} doest exist");
+                Redirect::pageNotFound();
+                //die("Action class {$action} in {$this->routing['action']} doest exist");
             }
         } else {
-            die("Class {$this->routing['controller']} doesnt exist");
+            Redirect::pageNotFound();
+            //die("Class {$this->routing['controller']} doesnt exist");
         }
     }
 
