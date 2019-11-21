@@ -1,13 +1,13 @@
 <?php
 
-namespace User\Controller\Main;
+namespace User\Controller\Site;
 
 use Core\App\Controller\AbstractAction;
 
 /**
  * Class Index
  *
- * @package User\Controller\Main
+ * @package User\Controller\Site
  */
 class Index extends AbstractAction
 {
@@ -30,8 +30,8 @@ class Index extends AbstractAction
      */
     public function execute()
     {
-        $this->getView()->setTitle('Index page');
+        $this->getView()->setTitle('Site page');
 
-        return $this->render('index', ['main' => 'Main page body content']);
+        return $this->render('index');
     }
 }
