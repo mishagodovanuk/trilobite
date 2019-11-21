@@ -2,6 +2,8 @@
 
 namespace Core\App\Router;
 
+use Core\App\View\TemplateFactory;
+
 /**
  * Class Dispatch
  *
@@ -64,6 +66,8 @@ class Dispatch
     private function runDispatch($action, $routing)
     {
         $startAction = new $action($routing);
-        print_r($startAction->execute());
+        $viewResult = $startAction->execute();
+
+        $result = new TemplateFactory($viewResult);
     }
 }
