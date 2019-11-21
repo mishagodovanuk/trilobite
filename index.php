@@ -6,5 +6,3 @@ Core\Autoload::loadSystemTools();
 Core\Autoload::load();
 
 Core\App\Router\Router::run();
-
-die('<br> die method here');
