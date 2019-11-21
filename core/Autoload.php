@@ -19,6 +19,8 @@ class Autoload
     public static function load()
     {
         self::loadCoreClasses();
+        self::loadControllers();
+        self::loadModels();
     }
 
     private static function loadCoreClasses()

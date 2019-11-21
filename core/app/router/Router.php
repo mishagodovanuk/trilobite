@@ -115,6 +115,9 @@ class Router
         return (string)$result;
     }
 
+    /**
+     * Run dispatcher.
+     */
     private function runDispatcher()
     {
         $dispatcher = new Predispatch(new Dispatch());
