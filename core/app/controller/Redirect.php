@@ -9,13 +9,26 @@ class Redirect
         header('Location:/core/Library/error_pages/404.php');
     }
 
-    public static function goToMainPage()
+    public static function goToMainPage($params = null)
     {
-        header('Location:' . SERVER_ROOT);
+        $paremeters = static::genereteParams($params);
+        header('Location:' . HOME_PAGE. $paremeters);
     }
 
-    public static function goToPage($url)
+    public static function goToPage($url, $params = null)
     {
-        header('Location:' . SERVER_ROOT . $url);
+        $parameters = static::genereteParams($params);
+        header('Location:' . HOME_PAGE . $url . '/' . $parameters);
+    }
+
+    private static function genereteParams($params)
+    {
+        $result = '?';
+        foreach ($params as $key => $value) {
+            $result .= "{$key}={$value}&";
+        }
+        $result = rtrim($result, '&');
+
+        return $result;
     }
 }

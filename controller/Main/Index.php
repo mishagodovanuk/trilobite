@@ -3,6 +3,7 @@
 namespace User\Controller\Main;
 
 use Core\App\Controller\AbstractAction;
+use Core\App\Controller\Redirect;
 
 /**
  * Class Index
