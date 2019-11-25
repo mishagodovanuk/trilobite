@@ -6,6 +6,22 @@ use Core\App\Database\DatabaseConnector;
 
 abstract class AbstractModel
 {
+    const SELECT_STATEMENT = 'SELECT ';
+
+    const INSERT_STATEMENT = 'INSERT ';
+
+    const UPDATE_STATEMENT = 'UPDATE ';
+
+    const DELETE_STATEMENT = 'DELETE ';
+
+    const FROM_STATEMENT = 'FROM ';
+
+    const WHERE_STATEMENT = 'WHERE ';
+
+    const SET_STATEMENT = 'SET';
+
+    const ALL_STATEMENT = '* ';
+
     private $dbconnect;
 
     public function __construct()
@@ -21,7 +37,8 @@ abstract class AbstractModel
 
     public function selectAll()
     {
-        $statement = "SELECT * FROM {$this->getTableName()}";
+        $statement = static::SELECT_STATEMENT . static::ALL_STATEMENT
+            . static::FROM_STATEMENT . $this->getTableName();
         $result = $this->query($statement);
 
         return $result;
@@ -29,13 +46,15 @@ abstract class AbstractModel
 
     public function deleteAll()
     {
-        $statement = "DELETE * FROM {$this->getTableName()}";
+        $statement = static::DELETE_STATEMENT . static::ALL_STATEMENT
+            . static::FROM_STATEMENT . $this->getTableName();
         $result = $this->query($statement);
     }
 
     public function selectById($id)
     {
-        $statement = "SELECT * FROM {$this->getTableName()} WHERE id={$id}";
+        $statement = static::SELECT_STATEMENT . static::ALL_STATEMENT
+            . static::FROM_STATEMENT . $this->getTableName() .  static::WHERE_STATEMENT . "id={$id}";
         $result = $this->query($statement);
 
         return $result;
@@ -43,7 +62,8 @@ abstract class AbstractModel
 
     public function deleteById($id)
     {
-        $statement = "DELETE * FROM {$this->getTableName()} WHERE id={$id}";
+        $statement = static::DELETE_STATEMENT . static::ALL_STATEMENT
+            . static::FROM_STATEMENT . $this->getTableName() . static::WHERE_STATEMENT . "id={$id}";
         $result = $this->query($statement);
     }
 }
