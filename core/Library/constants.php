@@ -6,3 +6,4 @@ define('CONTROLLERS_ROOT', SITE_ROOT . '/controller/');
 define('MODELS_ROOT', SITE_ROOT . '/model/');
 define('DOMAIN_NAME', 'trilobite');
 define('ERROR_PAGES', SERVER_ROOT . 'Library/');
+define('HOME_PAGE', 'http://' . DOMAIN_NAME . '/');
