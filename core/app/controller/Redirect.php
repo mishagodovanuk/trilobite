@@ -13,4 +13,9 @@ class Redirect
     {
         header('Location:' . SERVER_ROOT);
     }
+
+    public static function goToPage($url)
+    {
+        header('Location:' . SERVER_ROOT . $url);
+    }
 }

@@ -30,7 +30,7 @@ class Index extends AbstractAction
      */
     public function execute()
     {
-        $this->getView()->setTitle('Index page');
+        $this->getView()->setTitle('Home');
 
         return $this->render('index', ['main' => 'Main page body content']);
     }

@@ -161,6 +161,7 @@ class View
     private function setDefaultSkeleton()
     {
         $this->setTitle($this->routing['action']);
-        $this->setTemplate($this->routing['controller']);
+        $this->setTemplate('Main');
+        //$this->setTemplate($this->routing['controller']);
     }
 }
